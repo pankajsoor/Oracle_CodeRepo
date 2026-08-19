@@ -11,6 +11,7 @@
 - Oracle RAC, ASM, Data Guard, RMAN, GoldenGate, Exadata
 - Database modernization and migrations
 - Python, Terraform, Ansible, Jenkins, GitHub Actions, Rundeck
+- **HashiCorp Vault authentication and runtime secret management**
 - AWS; GCP working knowledge
 - Grafana, Geneos, OEM, AWR/ASH/ADDM
 - High availability, disaster recovery, capacity planning and SRE-aligned production reliability
@@ -33,6 +34,12 @@
 4. [HA/DR, Capacity & Reliability](projects/04-ha-dr-capacity-reliability/README.md)
 5. [Database Observability & Performance](projects/05-database-observability-performance/README.md)
 6. [Database DevOps Platform](projects/06-database-devops-platform/README.md)
+
+## Security pattern across all automation
+
+HashiCorp Vault is treated as a common security boundary. Automation authenticates to Vault before protected secret access, prefers short-lived workload authentication such as JWT/OIDC, AppRole or platform-native identity, applies least-privilege policies, retrieves secrets at runtime, and keeps credentials out of Git, logs and artifacts.
+
+A reusable sanitized helper is available at `automation/vault_auth.py`.
 
 ## Important note
 
